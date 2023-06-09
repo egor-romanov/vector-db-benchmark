@@ -18,6 +18,7 @@ redis = "^4.3.4"
 ipdb = "^0.13.9"
 stopit = "^1.1.2"
 opensearch-py = "^2.2.0"
+vecs = "^0.2.6"
 
 
 [tool.poetry.dev-dependencies]

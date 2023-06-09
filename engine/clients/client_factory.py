@@ -26,6 +26,12 @@ from engine.clients.weaviate import (
     WeaviateUploader,
 )
 
+from engine.clients.pgvector import (
+    PGVectorConfigurator,
+    PGVectorUploader,
+    PGVectorSearcher,
+)
+
 ENGINE_CONFIGURATORS = {
     "qdrant": QdrantConfigurator,
     "weaviate": WeaviateConfigurator,
@@ -33,6 +39,7 @@ ENGINE_CONFIGURATORS = {
     "elastic": ElasticConfigurator,
     "opensearch": OpenSearchConfigurator,
     "redis": RedisConfigurator,
+    "pgvector": PGVectorConfigurator,
 }
 
 ENGINE_UPLOADERS = {
@@ -42,6 +49,7 @@ ENGINE_UPLOADERS = {
     "elastic": ElasticUploader,
     "opensearch": OpenSearchUploader,
     "redis": RedisUploader,
+    "pgvector": PGVectorUploader,
 }
 
 ENGINE_SEARCHERS = {
@@ -51,6 +59,7 @@ ENGINE_SEARCHERS = {
     "elastic": ElasticSearcher,
     "opensearch": OpenSearchSearcher,
     "redis": RedisSearcher,
+    "pgvector": PGVectorSearcher,
 }
 
 

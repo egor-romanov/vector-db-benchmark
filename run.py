@@ -27,8 +27,11 @@ def run(
     Example:
         python3 run.py --engines *-m-16-* --engines qdrant-* --datasets glove-*
     """
+    print(f"Running experiments for")
     all_engines = read_engine_configs()
     all_datasets = read_dataset_config()
+    print(f"Engines: {list(all_engines.keys())}")
+    print(f"Datasets: {list(all_datasets.keys())}")
 
     selected_engines = {
         name: config
@@ -40,8 +43,12 @@ def run(
         for name, config in all_datasets.items()
         if any(fnmatch.fnmatch(name, dataset) for dataset in datasets)
     }
+    print(f"Selected engines: {list(selected_engines.keys())}")
+    print(f"Selected datasets: {list(selected_datasets.keys())}")
 
     for engine_name, engine_config in selected_engines.items():
+        print(f"Running engine: {engine_name}")
+        print(f"Engine config: {engine_config}")
         for dataset_name, dataset_config in selected_datasets.items():
             print(f"Running experiment: {engine_name} - {dataset_name}")
             client = ClientFactory(host).build_client(engine_config)
