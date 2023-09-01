@@ -18,13 +18,20 @@ class PGVectorSearcher(BaseSearcher):
         cls.client = vecs.create_client(PG_CONNECTION_STRING)
         cls.table = cls.client.get_collection("docs")
         cls.search_params = search_params
-        print("distance", distance)
         cls.distance = DISTANCE_MAPPING[distance]
-        print("distance", cls.distance)
 
     @classmethod
     def search_one(cls, vector, meta_conditions, top) -> List[Tuple[int, float]]:
         results = cls.table.query(vector, top, None, cls.distance, True)
 
-        print("results", results)
+        # print("results", results)
+        # product1 = np.linalg.norm(vector)
+        return [(int(result[0]), float(result[1])) for result in results]
+      
+    @classmethod
+    def search_one_another(cls, vector, meta_conditions, top) -> List[Tuple[int, float]]:
+        results = cls.table.query(vector, top, None, "cosine_distance", True)
+
+        # print("results", results)
+        # product1 = np.linalg.norm(vector)
         return [(int(result[0]), float(result[1])) for result in results]

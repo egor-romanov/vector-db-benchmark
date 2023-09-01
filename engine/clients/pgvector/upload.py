@@ -34,5 +34,5 @@ class PGVectorUploader(BaseUploader):
 
     @classmethod
     def post_upload(cls, distance):
-        cls.table.create_index(measure=DISTANCE_MAPPING[distance])
+        # cls.table.create_index(measure=DISTANCE_MAPPING[distance])
         return {}

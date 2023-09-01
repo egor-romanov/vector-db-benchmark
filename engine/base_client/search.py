@@ -43,15 +43,19 @@ class BaseSearcher:
                 if query.expected_result is not None and len(query.expected_result) > 0
                 else DEFAULT_TOP
             )
+        top = 10
 
         start = time.perf_counter()
         search_res = cls.search_one(query.vector, query.meta_conditions, top)
         end = time.perf_counter()
 
         precision = 1.0
-        if query.expected_result:
-            ids = set(x[0] for x in search_res)
-            precision = len(ids.intersection(query.expected_result[:top])) / top
+        # if query.expected_result:
+        ids = set(x[0] for x in search_res)
+        expected_result = cls.search_one_another(query.vector, query.meta_conditions, top*1.1)
+        expected_ids = set(x[0] for x in expected_result)
+        precision = len(ids.intersection(expected_ids)) / top
+        print("precision", precision)
 
         return precision, end - start
 

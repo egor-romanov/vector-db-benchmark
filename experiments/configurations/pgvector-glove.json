@@ -1,0 +1,10 @@
+[
+  {
+    "name": "pgvector-glove",
+    "engine": "pgvector",
+    "connection_params": {},
+    "collection_params": {},
+    "search_params": [{ "parallel": 5, "search_params": {} }],
+    "upload_params": { "parallel": 4, "batch_size": 512 }
+  }
+]

@@ -94,7 +94,7 @@
       "submitter": "keyword"
     }
   },
-    {
+  {
     "name": "arxiv-titles-384-angular-no-filters",
     "vector_size": 384,
     "distance": "cosine",
@@ -114,7 +114,7 @@
       "b": "keyword"
     }
   },
-    {
+  {
     "name": "random-match-keyword-100-angular-no-filters",
     "vector_size": 100,
     "distance": "cosine",
@@ -174,7 +174,7 @@
       "b": "geo"
     }
   },
-    {
+  {
     "name": "random-geo-radius-100-angular-no-filters",
     "vector_size": 100,
     "distance": "cosine",
@@ -234,7 +234,7 @@
       "b": "float"
     }
   },
-    {
+  {
     "name": "random-range-2048-angular-no-filters",
     "vector_size": 2048,
     "distance": "cosine",
@@ -254,7 +254,7 @@
       "b": "geo"
     }
   },
-    {
+  {
     "name": "random-geo-radius-2048-angular-no-filters",
     "vector_size": 2048,
     "distance": "cosine",
@@ -295,5 +295,41 @@
     "type": "tar",
     "link": "https://storage.googleapis.com/ann-filtered-benchmark/datasets/random_keywords_1m_vocab_10_no_filters.tgz",
     "path": "random-100-match-kw-small-vocab/random_keywords_1m_vocab_10_no_filters"
+  },
+  {
+    "name": "glove-512",
+    "vector_size": 512,
+    "distance": "dot",
+    "type": "h5",
+    "path": "glove-512/glove-512-test.h5",
+    "link": "http://example.com/glove-512/glove-512.h5"
+  },
+  {
+    "name": "dbpedia-1536",
+    "vector_size": 1536,
+    "distance": "dot",
+    "type": "jsonl",
+    "path": "dbpedia-1536/"
+  },
+  {
+    "name": "wiki-1536",
+    "vector_size": 1536,
+    "distance": "dot",
+    "type": "jsonl",
+    "path": "wiki-1536/"
+  },
+  {
+    "name": "wiki-384",
+    "vector_size": 384,
+    "distance": "dot",
+    "type": "jsonl",
+    "path": "wiki-384/"
+  },
+  {
+    "name": "wiki-gte-384",
+    "vector_size": 384,
+    "distance": "dot",
+    "type": "jsonl",
+    "path": "wiki-gte-384/"
   }
 ]
